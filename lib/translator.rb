@@ -8,11 +8,17 @@ def load_library(filepath)
       translate["get_emoticon"][emoticon[0]] = emoticon[1]
     end
     translate
-  end	 
+  end
 end
 
-def get_japanese_emoticon
-  # code goes here
+def get_japanese_emoticon(file, emoticon)
+  translate = load_library(file)
+    if translate["get_emoticon"].has_key?(emoticon)
+      jap_emoticon = translate["get_emoticon"][emoticon]
+    else
+    jap_emoticon = "Sorry, that emoticon was not found"
+    end
+  jap_emoticon
 end
 
 def get_english_meaning
